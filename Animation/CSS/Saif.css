@@ -1,0 +1,2081 @@
+/* Start Golbal Rules  */
+:root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --White-Color: #ffffff;
+    --Headingcolor: #1f2021;
+    --bordercolor: #e9e9e9;
+    --Covercolor: #ececec;
+    --transitioncolor: rgb(250, 250, 250);
+    --Paragraphcolor: #777777;
+    --MainPadding: 100px;
+    --Maingap: 40px;
+    --Box1color: #F44036;
+    --Box2color: #009688;
+    --Box3color: #03A9F4;
+    --Starcolor: #FFC107;
+    --List-Color: #b9b9b9;
+    --Border-Color: #e9e6e6;
+    --Light-Border: #444;
+    --White-Border: #ccc;
+}
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+
+    text-decoration: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Heading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    width: fit-content;
+    margin: 0 auto 75px;
+    padding: 10px 20px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    transition: color 0s , border-color 0s;
+}
+.Heading:hover {
+    color: white;
+    border-color: transparent;
+    transition: color 0.3s linear 0.4s , border-color 0.3s linear 0.4s;
+    z-index: 3;
+}
+.Heading::before , .Heading::after {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0s;
+}
+.Heading::before {
+    content: "";
+    left: -12%;
+}
+.Heading::after {
+    content: "";
+    right: -12%;
+}
+.Heading:hover::before , .Heading:hover::after {
+    height: 100%;
+    width: 50%;
+    border-radius: 0;
+    z-index: -1;
+    transition: all 0.3s linear 0.3s , right 0.3s linear , left 0.3s linear;
+}
+.Heading:hover::before {
+    left: 0;
+}
+.Heading:hover::after {
+    right: 0;
+}
+
+.Spikes {
+    position: relative;
+}
+
+.Spikes::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    background-image: linear-gradient(135deg , var(--White-Color) 25% , transparent 25%) , 
+                        linear-gradient(225deg , var(--White-Color) 25% , transparent 25%);
+    background-size: 30px 30px;
+    z-index: 1;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* End Global Rules  */
+
+/* Start Header */
+.Header {
+    margin: 21px 0;
+}
+
+.Header .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: all 0.3s ease 0s;
+}
+
+.Header .container .Active {
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+.Header .container ul {
+    display: flex;
+}
+
+.Header .container ul li a {
+    font-size: 17px;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--Headingcolor);
+    position: relative;
+    padding: 25px;
+    transition: all 0.3s ease 0s;
+}
+
+.Header .container ul li a:hover {
+    color: var(--main-color);
+}
+
+.Header .container ul li a::after {
+    content: "";
+    background-color: var(--transitioncolor);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: all 0.3s ease 0s;
+    z-index: -1;
+}
+.Header .container ul li a:hover::after {
+    width: 100%;
+}
+
+.Header .container ul li a::before {
+    content: "";
+    border-top: 5px solid var(--main-color-alt);
+    position: absolute;
+    top: 13%;
+    left: 0;
+    width: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.Header .container ul li a:hover::before {
+    width: 100%;
+    z-index: 2;
+}
+
+@media (max-width: 767px) {
+    .Header {
+        margin: 35px 0 0 0;
+    }
+    .Header .container {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+    .Header .container .Active {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .Header .container ul {
+        justify-content: center;
+    }
+    .Header .container ul li a {
+        display: inline-block;
+        font-size: 13.3px;
+        padding: 15px;
+    }
+    .Header .container ul li a::before {
+        top: 0;
+    }
+}
+
+/* Start List  */
+
+.Header .container .Lists {
+    display: grid;
+    grid-template-columns: repeat(7 , 1fr);
+    grid-template-rows: repeat(5 , 1fr);
+    column-gap: 5%;
+    background-color: var(--White-Color);
+    height: 325px;
+    border-bottom: 3px solid var(--main-color-alt);
+    border-top: 1px solid var(--bordercolor);
+    margin: 30px auto 0;
+    padding-top: 20px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: calc(6.5% + 50px);;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease , top 0.4s ease;
+    z-index: 999;
+}
+
+.Header .container ul .Hover:hover .Lists {
+    opacity: 1;
+    visibility: visible;
+    top: 5.9%;
+}
+
+.Header .container .Lists .Image {
+    grid-column: 1 / 4;
+    grid-row: 1 / 6;
+}
+
+.Header .container .Lists .Image img {
+    padding: 35px;
+    width: 450px;
+}
+
+.Header .container .Lists .List1 , .Header .container .Lists .List2 {
+    display: grid;
+    grid-column: 4 / 6;
+    grid-row: 1 / 6;
+    margin-bottom: 20px;
+}
+
+.Header .container .Lists .List2 {
+    grid-column: 6 / 8;
+}
+
+.Header .container .Lists .List .Box {
+    display: flex;
+    align-items: center;
+    grid-row: span 1;
+    border-bottom: 1px solid var(--Border-Color);
+    cursor: pointer;
+    position: relative;
+}
+
+.Header .container .Lists .List .Box::before {
+    content: "";
+    background-color: rgb(168, 168, 168 , 0.08);
+    transition: all 0.2s linear 0s;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.Header .container .Lists .List .Box:hover::before {
+    width: 100%;
+}
+
+.Header .container .Lists .List .Box p {
+    margin-left: 10px;
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.Header .container .Lists .List .Box i {
+    color: var(--main-color);
+    margin-left: 10px;
+}
+
+.Header .container .Lists .List .Box5 , .Header .container .Lists .List .Box10 {
+    border: none;
+}
+
+@media (max-width: 992px) {
+    .Header .container .Lists {
+        grid-template-columns: repeat(4 , 1fr);
+        padding: 20px 30px 10px;
+        column-gap: 6%;
+    }
+    .Header .container .Lists .List1 {
+        grid-column: 1 / 3;
+    }
+    .Header .container .Lists .List2 {
+        grid-column: 3 / 5;
+    }
+    .Header .container .Lists .Image {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .Header .container {
+        padding: 0;
+    }
+    .Header .container .Lists {
+        height: 450px;
+        width: 100%;
+        grid-template-columns: repeat(1 , 1fr);
+        grid-template-rows: repeat(10 , 1fr);
+        margin-top: 75px;
+        padding: 10px 0;
+        left: 50%;
+    }
+    .Header .container .Lists .List {
+        grid-column: 1 / 2;
+        margin-bottom: 0;
+    }
+    .Header .container .Lists .List1 {
+        grid-row: 1 / 6;
+    }
+    .Header .container .Lists .List2 {
+        grid-row: 6 / 11;
+    }
+    .Header .container .Lists .List .Box5 {
+        border-bottom: 1px solid var(--Border-Color) ;
+    }
+    .Header .container .Lists .List .Box p {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .Header .container .Lists .List .Box i {
+        margin-left: 20px;
+        margin-right: 5px;
+    }
+}
+/* End List  */
+/* End Header */
+
+/* Start Landing */
+.Landing {
+    background-color: var(--Covercolor);
+    height: 667px;
+    position: relative;
+    overflow: hidden;
+}
+
+.Landing .container {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 200px;
+    padding-top: 50px;
+    overflow: hidden;
+}
+
+.Landing .container .Text {
+    flex-basis: 47%;
+    padding: 10px;
+    font-weight: 500;
+}
+
+.Landing .container .Text h2 {
+    font-size: 37px;
+    color: var(--Headingcolor);
+    margin-bottom: 7px;
+    font-weight: 800;
+}
+
+.Landing .container .Text p {
+    color: var(--Paragraphcolor);
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.Landing .container .Image {
+    flex-basis: 52%;
+    height: 100%;
+    position: relative;
+}
+
+.Landing .container .Image img{
+    max-width: 100%;
+    position: absolute;
+    animation: Top-Bottom 3s linear infinite normal ;
+}
+
+@keyframes Top-Bottom {
+    0% , 50% , 100% {
+        top: 50%;
+        transform: translatey(-50%);
+    }
+    25% {
+        top: 5%;
+        transform: translatey(-5%);
+    }
+    75% {
+        top: 95%;
+        transform: translatey(-95%);
+    }
+}
+
+@media (max-width:992px) {
+    .Landing .container .Image {
+        display: none;
+    }
+    .Landing .container {
+        justify-content: center;
+    }
+    .Landing .container .Text {
+        flex-basis: 75%;
+        text-align: center;
+    }
+}
+
+@media (max-width:767px) {
+    .Landing .container {
+        padding: 0 15px;
+    }
+    .Landing .container .Text {
+        flex-basis: 500px;
+        text-align: center;
+        margin-top: -150px;
+    }
+    .Landing .container .Text h2 {
+        font-size: 30px;
+        letter-spacing: -2px;
+        word-spacing: -1px;
+    }
+    .Landing .container .Text p {
+        font-size: 18px;
+        width: 100%;
+    }
+}
+
+/* Start Shape */
+.Landing::before {
+    content: "";
+    display: block;
+    background-color: var(--White-Color);
+    width: 100%;
+    height: 45%;
+    position: absolute;
+    bottom: -211px;
+    transform: skewy(354deg);
+}
+
+.Landing .Shape {
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+    animation: arrow 1.5s ease infinite normal 0.5s;
+}
+
+.Landing .Shape i {
+    font-size: 28px;
+    color: var(--main-color);
+    transition: all 0.3s linear;
+}
+
+.Landing .Shape i:hover {
+    color: var(--main-color-alt);
+}
+
+@keyframes arrow {
+    0% , 30% , 60% , 100%{
+        bottom: 3%;
+    }
+    15% , 45% {
+        bottom:6%;
+    }
+}
+/* End Shape */
+/* End Landing */
+
+/* Start Articles */
+.Articles {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+}
+
+.Articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: var(--Maingap);
+}
+
+.Articles .container .Box {
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    border-radius: 6px;
+    position: relative;
+    top: 0;
+    transition: all 0.2s linear;
+    overflow: hidden;
+}
+
+.Articles .container .Box:hover {
+    top: -10px;
+    box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+}
+
+.Articles .container .Box:hover i {
+    animation: Right-Arrow 0.7s infinite linear;
+}
+
+.Articles .container .Box .Image img{
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.Articles .container .Box .Text {
+    padding: 20px;
+    background-color: var(--White-Color);
+}
+
+.Articles .container .Box .Text h3 {
+    padding-bottom: 10px;
+}
+
+.Articles .container .Box .Text p {
+    color: var(--Paragraphcolor);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.Articles .container .Box .More {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-top: 1px solid var(--bordercolor);
+}
+
+.Articles .container .Box .More a{
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.Articles .container .Box .More i{
+    color: var(--main-color);
+    font-size: 15px;
+    position: relative;
+    right: 0;
+}
+
+@keyframes Right-Arrow {
+    to {
+        right: -13px;
+    }
+}
+
+/* End Articles */
+/* Start Gallery */
+.Gallery {
+    background-color: var(--Covercolor);
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    position: relative;
+}
+
+.Gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px , 1fr));
+    gap: var(--Maingap);
+}
+
+.Gallery .container .Box {
+    background-color: var(--White-Color);
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%), 0px 2px 4px 0px rgb(0 0 0 / 12%);
+}
+
+.Gallery .container .Image {
+    position: relative;
+    overflow: hidden;
+}
+
+.Gallery .container .Image::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    width: 0;
+    height: 0;
+    background-color: rgb(255, 255, 255 , 0.2);
+    z-index: 100;
+}
+
+.Gallery .container img {
+    max-width: 100%;
+    transition: 0.3s;
+}
+
+.Gallery .container .Image:hover img {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.Gallery .container .Image:hover::before {
+    animation: Flash 0.7s;
+}
+@keyframes Flash {
+    0% , 40%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+/* End Gallery */
+/* Start Features */
+.Features {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+}
+
+.Features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: var(--Maingap);
+}
+
+.Features .container .Box {
+    border: 1px solid var(--White-Border);
+}
+
+.Features .container .Image {
+    position: relative;
+    overflow: hidden;
+}
+
+.Features .container .Image::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.Features .container .Box1 .Image::before {
+    background-color: rgb(244 64 54 / 60%);
+}
+
+.Features .container .Box2 .Image::before {
+    background-color: rgb(0 150 136 / 60%);
+}
+
+.Features .container .Box3 .Image::before {
+    background-color: rgb(3 169 244 / 60%);
+}
+
+.Features .container .Image img {
+    max-width: 100%;
+}
+
+.Features .container .Text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.Features .container .Text h3 {
+    font-size: 40px;
+    margin-top: 0;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.Features .container .Text h3::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 65%;
+    margin: 0 calc(35% / 2);
+}
+
+.Features .container .Box1 .Text h3::before {
+    border-bottom: 5px solid var(--Box1color);
+}
+
+.Features .container .Box2 .Text h3::before {
+    border-bottom: 5px solid var(--Box2color);
+}
+
+.Features .container .Box3 .Text h3::before {
+    border-bottom: 5px solid var(--Box3color);
+}
+
+.Features .container .Image::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-width: 0px 0 170px 500px;
+    border-style: solid;
+    border-color: transparent transparent var(--White-Color) transparent;
+    z-index: 101;
+    transition: 0.3s;
+}
+
+.Features .container .Box:hover .Image::after {
+    border-width: 0px 500px 170px 0px;
+    border-color: transparent transparent var(--White-Color) transparent;
+}
+
+.Features .container .Text p {
+    font-size: 20px;
+    color: var(--Paragraphcolor);
+    margin: 35px 15px;
+    line-height: 2;
+    
+}
+
+.Features .container .Box a {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.2s linear;
+}
+
+.Features .container .Box1 a {
+    color: var(--Box1color);
+    border: 3px solid var(--Box1color);
+}
+.Features .container .Box2 a {
+    color: var(--Box2color);
+    border: 3px solid var(--Box2color);
+}
+.Features .container .Box3 a {
+    color: var(--Box3color);
+    border: 3px solid var(--Box3color);
+}
+
+.Features .container .Box:hover a {
+    color: var(--White-Color);
+}
+
+.Features .container .Box a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 100%;
+    transition: all 0.2s linear;
+    z-index: -1;
+}
+
+.Features .container .Box1 a::before {
+    background-color: var(--Box1color);
+}
+
+.Features .container .Box2 a::before {
+    background-color: var(--Box2color);
+}
+
+.Features .container .Box3 a::before {
+    background-color: var(--Box3color);
+}
+
+.Features .container .Box:hover a::before {
+    width: 100%;
+}
+
+/* End Features */
+/* Start Testimonials */
+.Testimonials {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-color: var(--Covercolor);
+}
+
+.Testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: var(--Maingap);
+}
+.Testimonials .Box {
+    background-color: var(--White-Color);
+    padding: 20px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 7%);
+}
+
+.Testimonials .Box .Header {
+    margin: 0;
+}
+
+.Testimonials .Box .Header h3{
+    margin-bottom: 10px;
+}
+
+.Testimonials .Box .Header span{
+    color: var(--Paragraphcolor);
+}
+
+.Testimonials .Box .Icons {
+    margin: 10px 0;
+}
+
+.Testimonials .Box .Icons i{
+    font-size: 15px;
+}
+
+.Testimonials .Box1 .Icons i:not(:last-child) , 
+.Testimonials .Box2 .Icons i:not(:last-child) , 
+.Testimonials .Box3 .Icons i:not(:last-child) {
+    color: var(--Starcolor);
+}
+
+.Testimonials .Box4 .Icons i{
+    color: var(--Starcolor);
+}
+
+.Testimonials .Box5 .Icons i:nth-child(-n + 3), .Testimonials .Box6 .Icons i:nth-child(-n + 3){
+    color: var(--Starcolor);
+}
+
+.Testimonials .Box .Text p {
+    color: var(--Paragraphcolor);
+    line-height: 1.5;
+}
+
+.Testimonials .Box .Image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--Covercolor);
+    position: absolute;
+    right: -3%;
+    top: -25%;
+}
+
+.Testimonials .Box .Image img {
+    max-width: 100%;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+/* End Testimonials */
+/* Start Team-Members */
+.Team-Members {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+}
+
+.Team-Members .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 30px;
+}
+
+.Team-Members .container .Box {
+    position: relative;
+    padding: 25px;
+    padding-left: 0;
+}
+
+.Team-Members .container .Box::before,
+.Team-Members .container .Box::after {
+    content: "";
+    background-color: #F3F3F3;
+    height: 100%;
+    width: 83%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 10px;
+    z-index: -2;
+}
+
+.Team-Members .container .Box::after {
+    background-color: #E4E4E4;
+    width: 0;
+    z-index: -1;
+    transition: all 0.2s linear;
+}
+
+.Team-Members .container .Box:hover::after {
+    width: 83%;
+}
+
+.Team-Members .container .Box .Image-Icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.Team-Members .container .Image-Icons .Image {
+    margin: 20px 30px 0 0;
+    position: relative;
+}
+
+.Team-Members .container .Image-Icons img {
+    filter: grayscale(0%);
+    transition: all 0.2s linear;
+}
+
+.Team-Members .container .Box:hover .Image img {
+    filter: grayscale(100%);
+} 
+
+.Team-Members .container .Image-Icons img {
+    max-width: 100%;
+    border-radius: 10px;
+} 
+
+.Team-Members .container .Image-Icons .Icons {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Team-Members .container .Image-Icons .Icons i {
+    margin-bottom: 35px;
+    color: var(--Paragraphcolor);
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+.Team-Members .container .Image-Icons .Icons i:hover {
+    color: var(--main-color);
+}
+
+.Team-Members .container .Text {
+    padding-left: calc(17% + 20px);
+}
+
+.Team-Members .container .Text h3 {
+    color: var(--main-color);
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.Team-Members .container .Box:hover .Text h3 {
+    color: var(--Paragraphcolor);
+} 
+/* End Team-Members */
+/* Start Services */
+.Services {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-color: var(--Covercolor);
+}
+
+.Services .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: var(--Maingap);
+}
+
+.Services .container .Box {
+    position: relative;
+    text-align: center;
+    background-color: var(--White-Color);
+    box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+    transform: translateY(0);
+    transition: all 0.2s linear;
+}
+
+.Services .container .Box::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--main-color);
+    width: 0%;
+    height: 3px;
+    transition: all 0.2s linear;
+}
+
+.Services .container .Box:hover {
+    transform: translateY(-10px);
+}
+
+.Services .container .Box:hover::before {
+    width: 100%;
+}
+
+.Services .container .Box i {
+    color: #D5D5D5;
+    font-size: 4rem;
+    margin: 30px 0 15px;
+    width: 100%;
+}
+
+.Services .container .Box h3 {
+    color: var(--main-color);
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.Services .container .Box .Footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 15px;
+    background: linear-gradient(122deg, var(--main-color) 0px 80px, #D5D5D5 80px 125px, #F9F9F9 125px 100%);
+}
+
+.Services .container .Box p {
+    color: var(--White-Color);
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.Services .container .Box a {
+    color: var(--main-color);
+    font-size: 16px;
+}
+/* End Services */
+/* Start Our-Skills */
+.Our-Skills {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+}
+
+.Our-Skills .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.Our-Skills .container .Content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.Our-Skills .container .Image {
+    margin-bottom: 50px;
+}
+
+.Our-Skills .container .Content .Box {
+    background-color: #EEEEEE;
+    height: 30px;
+    position: relative;
+}
+
+.Our-Skills .container .Content .Box p {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-color: var(--White-Color);
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 1px solid var(--White-Border) ;
+    border-radius: 3px;
+}
+
+.Our-Skills .container .Content .Box span {
+    display: block;
+    background-color: var(--main-color);
+    height: 100%;
+    animation: FW 0.5s linear 1;
+}
+
+.Our-Skills .container .Content .Box h3 {
+    position: absolute;
+    top: -40px;
+}
+
+.Our-Skills .container .Content .Box1 span ,
+.Our-Skills .container .Content .Box4 span {
+    width: 80%;
+}
+
+.Our-Skills .container .Content .Box2 span {
+    width: 85%;
+}
+
+.Our-Skills .container .Content .Box3 span {
+    width: 70%;
+}
+
+@media (max-width: 992px) {
+    .Our-Skills .container .Image {
+        display: none;
+    }
+    .Our-Skills .container .Content .Box  {
+        margin: 30px 0;
+    }
+}
+
+@keyframes FW {
+    from {
+        width: 0%;
+    }
+    to {
+        width: calc(fit-content + 0.01px);
+    }
+}
+/* End Our-Skills */
+/* Start Works */
+.Work {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-color: var(--Covercolor);
+}
+
+.Work .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Work .container .Image img {
+    max-width: 100%;
+}
+
+.Work .container .Content {
+    flex-basis: 50%;
+}
+
+.Work .container .Content .Box {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: #f6f5f5;
+    border: 2px solid var(--White-Color);
+    border-radius: 7px;
+    padding: 30px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.Work .container .Content .Box::before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: #EDEDED ;
+    transition: 0.2s linear;
+    z-index: -1;
+}
+
+.Work .container .Content .Box:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+.Work .container .Content .Image1 {
+    align-self: center;
+}
+
+.Work .container .Content .Image1 img {
+    width: 64px;
+}
+
+.Work .container .Content .Box .Text {
+    margin-left: 25px;
+}
+
+.Work .container .Content .Box .Text h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.Work .container .Content .Box .Text p {
+    color: var(--Paragraphcolor);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+@media (max-width: 1200px) {
+    .Work .container .Content {
+        flex-basis: 40%;
+    }
+}
+
+@media (max-width: 992px) {
+    .Work .container {
+        flex-direction: column;
+    }
+    .Work .container .Image {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .Work .container .Content .Box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .Work .container .Content .Box .Image1 {
+        margin-bottom: 25px;
+    }
+    .Work .container .Content .Box .Text {
+        margin-left: 0;
+    }
+}
+/* End Works */
+/* Start Events */
+.Events {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    position: relative;
+}
+
+.Events .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.Events .container .Image {
+    flex-basis: 40%;
+}
+
+.Events .container .Image img{
+    width: 450px;
+}
+
+.Events .container .Content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-basis: 60%;
+}
+
+.Events .container .Content .Boxs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.Events .container .Content .Boxs .Box {
+    border: 1px solid #d4d4d4;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.Events .container .Content .Boxs .Box h3 {
+    color: var(--main-color);
+    font-size: 35px;
+    padding: 15px;
+}
+
+.Events .container .Content .Boxs .Box p {
+    font-size: 13px;
+    padding: 8px 15px;
+    border-top: 1px solid #d4d4d4 ;
+}
+
+.Events .container .Content .Boxs .Box:hover,
+.Events .container .Content .Box:hover p {
+    border-color: var(--main-color);
+    transition: 0.3s;
+}
+
+.Events .container .Content .Text {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.Events .container .Content .Text h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.Events .container .Content .Text p {
+    font-size: 19px;
+    color: var(--Paragraphcolor);
+    line-height: 1.7;
+}
+
+.Events .container .Inputs {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    background-color: #F6F5F5;
+    width: 600px;
+    padding: 30px 40px;
+    margin-top: 50px;
+    border-radius: 50px;
+}
+
+.Events .container .Inputs .I1 {
+    border: none;
+    flex: 1;
+    padding: 20px;
+    margin-right: 15px;
+    border-radius: 30px;
+    outline: none;
+    caret-color: var(--main-color);
+}
+
+.Events .container .Inputs .I1:focus::placeholder {
+    color: transparent;
+    transition: 0.5s;
+}
+
+.Events .container .Inputs .I2 {
+    border: none;
+    color: var(--White-Color);
+    background-color: var(--main-color);
+    font-weight: bold;
+    padding: 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Events .container .Inputs .I2:hover {
+    background-color: var(--main-color-alt);
+}
+
+.Events .container .Dots .G1 , .Events .container .Dots .G2 {
+    position: absolute;
+}
+
+.Events .container .Dots .G1 {
+    top: 25%;
+    right: 0;
+    transform: translateY(-25%);
+} 
+
+.Events .container .Dots .G2 {
+    top: 80%;
+    left: 0;
+    transform: translateY(-80%);
+}
+
+@media (max-width: 1200px) {
+    .Events .container .Dots .G1 , 
+    .Events .container .Dots .G2 {
+        display: none;
+    }
+    .Events .container .Image , .Events .container .Content {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    .Events .container .Image {
+        display: none;
+    }
+    .Events .container .Content {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .Events .container .Inputs {
+        flex-direction: column;
+        border-radius: 0;
+        padding: 20px;
+    }
+    .Events .container .Inputs .I1 , .Events .container .Inputs .I2 {
+        border-radius: 0;
+    }
+    .Events .container .Inputs .I1 {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .Events .container .Inputs .I2 {
+        transition: 0.3s;
+    }
+}
+/* End Events */
+/* Start Pricing */
+.Pricing {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-color: var(--Covercolor);
+    position: relative;
+}
+
+.Pricing .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(300px , 1fr));
+    gap: 30px;
+}
+
+.Pricing .container .List {
+    background-color: var(--White-Color);
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 12px 20px 0px, rgba(0, 0, 0, 0.12) 0px 2px 4px 0px;
+    position: relative;
+    z-index: 1;
+}
+
+.Pricing .container .List::before ,
+.Pricing .container .List::after {
+    content: "";
+    background-color: #F6F6F6;
+    height: 50%;
+    width: 0;
+    position: absolute;
+    z-index: -1;
+    transition: 0.3s;
+} 
+
+.Pricing .container .List::before {
+    top: 0;
+    left: 0;
+}
+
+.Pricing .container .List::after {
+    bottom: 0;
+    right: 0;
+}
+
+.Pricing .container .List:hover::before ,
+.Pricing .container .List:hover::after {
+    width: 100%;
+}
+
+.Pricing .container .List .Listc li {
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.Pricing .container .List .Listc .Li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Pricing .container .List .Listc .Li h3 {
+    font-size: 25px;
+    margin: 10px 0 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.Pricing .container .List .Listc .Li img {
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.Pricing .container .List .Listc .Li h2 {
+    font-size: 60px;
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.Pricing .container .List .Listc .Li p {
+    color: var(--Paragraphcolor);
+}
+
+.Pricing .container .List .Listc .Ls {
+    border: none;
+}
+
+.Pricing .container .List .Listc li i {
+    color: var(--main-color);
+    margin-right: 10px;
+}
+
+.Pricing .container .List button {
+    background-color: var(--White-Color);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    padding: 15px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 30px auto 40px;
+    display: flex;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Pricing .container .List button:hover {
+    color: var(--White-Color);
+    background-color: var(--main-color-alt);
+    border-color: var(--main-color-alt);
+}
+
+.Pricing .container .Dots .G1 , .Pricing .container .Dots .G2 {
+    position: absolute;
+}
+
+.Pricing .container .Dots .G1 {
+    top: 23%;
+    right: 0;
+    transform: translateY(-25%);
+} 
+
+.Pricing .container .Dots .G2 {
+    top: 90%;
+    left: 0;
+    transform: translateY(-80%);
+}
+
+/* Start List2 */
+.Pricing .container .List2 {
+    top: -20px;
+    position: relative;
+}
+
+.Pricing .container .List2 .Shape {
+    background-color: var(--main-color);
+    color: var(--White-Color);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    text-indent: 10px;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    top: 55px;
+    right: -35px;
+    transform: rotate(90deg);
+}
+
+.Pricing .container .List2 .Shape::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: calc(100% + 1px);
+    transform: translateX(-100%);
+    width: 0;
+    height: 0;
+    border-width: 21px;
+    border-style: solid;
+    border-color: transparent var(--White-Color) transparent transparent;
+}
+/* End List2 */
+
+@media (max-width: 1200px) {
+    .Pricing .container .List2 {
+        top: 0;
+    }
+    .Pricing .container .Dots .G1 {
+        top: 13%;
+    } 
+
+    .Pricing .container .Dots .G2 {
+        top: 95%;
+    }
+}
+@media (max-width: 767px) {
+    .Pricing .container .Dots .G1 {
+        top: 9%;
+    }
+}
+/* End Pricing */
+/* Start Videos */
+.Videos {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+}
+
+.Videos .container .Sides {
+    display: flex;
+    border: 1px solid #ddd;
+}
+
+/* Start Left-Side */
+.Videos .Left-Side {
+    width: 300px;
+}
+
+.Videos .Left-Side .Head {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F4F4F4;
+    padding: 20px;
+    border-bottom: 1px solid var(--Covercolor);
+}
+
+.Videos .Left-Side .Head span {
+    font-weight: bold;
+}
+
+.Videos .Left-Side ul li {
+    padding: 20px;
+    border-bottom: 1px solid var(--Covercolor);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Videos .Left-Side ul li span {
+    display: block;
+    color: var(--Paragraphcolor);
+    margin-top: 10px;
+}
+
+.Videos .Left-Side ul li:hover {
+    background-color: #FAFAFA;
+    color: var(--main-color);
+}
+/* End Left-Side */
+/* Start Right-Side */
+.Videos .Right-Side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #E2E2E2;
+}
+
+.Videos .Right-Side .Image img {
+    max-width: 100%;
+}
+
+.Videos .Right-Side p {
+    background-color: var(--White-Color);
+    padding: 20px;
+    margin-top: 10px;
+}
+/* End Right-Side */
+
+@media (max-width: 992px) {
+    .Videos .container .Sides {
+        flex-direction: column;
+    }
+    .Videos .Left-Side {
+        width: 100%;
+    }
+}
+/* End Videos */
+/* Start Awesome */
+.Awesome {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-image: url("../Images/stats.jpg");
+    background-size: cover;
+    position: relative;
+    min-height: 300px;
+}
+
+.Awesome .Cover {
+    background-color: rgb(255, 255, 255 , 0.95);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.Awesome .container {
+    position: relative;
+}
+
+.Awesome .container h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+.Awesome .container .Boxs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 20px;
+}
+
+.Awesome .container .Boxs .Box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--White-Color);
+    padding: 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.Awesome .container .Boxs .Box i {
+    color: rgb(0, 0, 0 , 0.8);
+    transition: 0.3s;
+}
+
+.Awesome .container .Boxs .Box p {
+    font-weight: bold;
+    font-size: 50px;
+    margin: 10px 0;
+    color: rgb(0, 0, 0 , 0.8);
+    transition: 0.3s;
+}
+
+.Awesome .container .Boxs .Box span {
+    color: var(--main-color);
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+} 
+
+.Awesome .container .Boxs .Box:hover i , 
+.Awesome .container .Boxs .Box:hover p {
+    color: black;
+}
+
+.Awesome .container .Boxs .Box::before ,
+.Awesome .container .Boxs .Box::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    transition: 1s;
+}
+
+.Awesome .container .Boxs .Box::before {
+    top: 0;
+    right: 0;
+    border-right: 2px solid var(--main-color);
+}
+
+.Awesome .container .Boxs .Box::after {
+    bottom: 0;
+    left: 0;
+    border-left: 2px solid var(--main-color);
+}
+
+.Awesome .container .Boxs .Box:hover:before ,
+.Awesome .container .Boxs .Box:hover::after {
+    height: 100%;
+}
+/* End Awesome */
+/* Start Discount */
+.Discount {
+    padding-top: var(--MainPadding);
+    padding-bottom: var(--MainPadding);
+    background-image: url("../Images/discount-background1.jpg");
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    z-index: 0;
+    animation: Change 10s infinite linear;
+}
+
+.Discount::before ,
+.Discount::after {
+    content: "";  
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+} 
+
+.Discount::before {
+    background-color: rgb(23 135 224 / 97%);
+    left: 0;
+}
+
+.Discount::after {
+    background-color: var(--White-Color);
+    right: 0;
+}
+
+/* Start Left-Side */
+.Discount .Left-Side ,
+.Discount .Right-Side {
+    width: 50%;
+    height: 100%;
+    z-index: 100;
+}
+
+.Discount .Left-Side {
+    padding: 20px;
+}
+
+.Discount .Left-Side h2 {
+    color: var(--White-Color);
+    font-size: 40px;
+    letter-spacing: -2px;
+    margin: 30px;
+}
+
+.Discount .Left-Side p {
+    color: var(--White-Color);
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 30px auto;
+    font-weight: 500;
+    max-width: 550px;
+}
+
+.Discount .Left-Side img {
+    width: 300px;
+    max-width: 100%;
+}
+/* End Left-Side */
+/* Start Right-Side */
+
+.Discount .Right-Side form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Discount .Right-Side h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+    margin-bottom: 35px;
+}
+
+.Discount .Right-Side input ,
+.Discount .Right-Side textarea {
+    border: none;
+    background-color: #F9F9F9;
+    border-bottom: 1px solid var(--White-Border);
+    padding: 15px;
+    margin-bottom: 25px;
+    width: 300px;
+    outline: none;
+}
+
+.Discount .Right-Side textarea {
+    resize: none;
+    height: 200px;
+}
+
+.Discount .Right-Side .Sub {
+    display: block;
+    color: var(--White-Color);
+    background-color: var(--main-color);
+    font-weight: bold;
+    font-size: 20px;
+    padding: 15px;
+    width: 300px;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.Discount .Right-Side .Sub:hover {
+    background-color: var(--main-color-alt);
+}
+/* End Right-Side */
+@media (max-width: 992px) {
+    .Discount {
+        padding: 0;
+        flex-direction: column;
+    }
+    .Discount::before ,
+    .Discount::after {
+        width: 100%;
+        height: 50%;
+    }
+    .Discount::after {
+        top: 50%;
+    }
+    .Discount .Left-Side , 
+    .Discount .Right-Side {
+        width: 100%;
+        height: 100%;
+        padding: 50px 0;
+    }
+}
+@media (max-width: 767px) {
+    .Discount .Left-Side {
+        padding: 10px;
+    }
+}
+@keyframes Change {
+    0% , 100% {
+        background-image: url("../Images/discount-background1.jpg");
+    }
+    50% {
+        background-image: url("../Images/discount-background2.jpg");
+    }
+}
+/* End Discount */
+/* Start Footer */
+.Footer {
+    padding-top: 70px;
+    padding-bottom: 140px;
+    background-color: #191919;
+    position: relative;
+}
+
+.Footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 40px;
+}
+
+.Footer .container .Box:not(.Box4) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+/* Start Box1 */
+.Footer .container .Box1 h3 {
+    color: var(--White-Color);
+    font-size: 50px;
+}
+
+.Footer .container .Box1 .Icons {
+    display: flex;  
+    align-items: center;
+    margin: 20px 0;
+}
+
+.Footer .container .Box1 .Icons li {
+    color: var(--List-Color);
+    font-size: 18px;
+    background-color: #313131;
+    padding: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Footer .container .Box1 .Icons .L1:hover {
+    background-color: #1877F2;
+}
+
+.Footer .container .Box1 .Icons .L2:hover {
+    background-color: #1DA1F2;
+}
+
+.Footer .container .Box1 .Icons .L3:hover {
+    background-color: #FF0000;
+}
+
+.Footer .container .Box1 p {
+    color: var(--List-Color);
+        line-height: 2;
+}
+/* End Box1 */
+/* Start Box2 */
+.Footer .container .Box2 li {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    color: var(--List-Color);
+    transition: 0.3s;
+}
+
+.Footer .container .Box2 li:hover {
+    color: var(--White-Color);
+    padding-left: 10px;
+}
+
+.Footer .container .Box2 li:not(:last-child) {
+    border-bottom: 1px solid var(--Light-Border);
+}
+
+.Footer .container .Box2 li i {
+    color: var(--main-color);
+    margin-right: 10px;
+    font-size: 13px;
+}
+/* End Box2 */
+/* Start Box3 */
+.Footer .container .Box3 li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.Footer .container .Box3 li i {
+    color: var(--main-color);
+    font-size: 25px;
+    margin-right: 15px;
+}
+
+.Footer .container .Box3 li p {
+    color: var(--List-Color);
+    font-size: 16px;
+    line-height: 1.7;
+}
+/* End Box3 */
+/* Start Box4 */
+.Footer .container .Box4 img {
+    width: 78px;
+    border: 3px solid var(--White-Color);
+    margin: 2px;
+}
+/* End Box4 */
+.Footer span {
+    display: block;
+    width: 100%;
+    color: var(--White-Color);
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    padding: 25px 0;
+    border-top: 1px solid var(--Light-Border);
+}
+
+@media (max-width: 767px) {
+    .Footer .container .Box1 {
+        align-items: center;
+    }
+    .Footer .container .Box1 p {
+        text-align: center;
+    }   
+    .Footer .container .Box2 ul li {
+        justify-content: center;
+    }
+    .Footer .container .Box3 li {
+        flex-direction: column;
+        text-align: center;
+    }
+    .Footer .container .Box3 li i {
+        margin: 0 0 15px;
+    }
+    .Footer .container .Box4 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+}
+/* End Footer */
